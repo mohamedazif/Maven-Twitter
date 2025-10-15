@@ -1,9 +1,6 @@
 package org.twitter.view;
 
-import org.twitter.controller.ProfileController;
-import org.twitter.controller.TimelineController;
-import org.twitter.controller.TweetController;
-import org.twitter.controller.UserController;
+import org.twitter.controller.*;
 import org.twitter.model.Tweet;
 import org.twitter.model.User;
 import org.twitter.service.UserProfile;
@@ -245,10 +242,32 @@ public final class Main {
     }
 
     private static void suggestFollowers() {
+        FollowSuggestionController followSuggestionController = new FollowSuggestionController();
 
+        List<User> suggestions = followSuggestionController.getSuggestedUser(loggedUser);
+
+        if (suggestions.isEmpty()) {
+            System.out.println("No suggestions available right now.");
+            return;
+        }
+
+        System.out.println("Follow Suggestions for " + loggedUser.getUserName() + ":");
+        for (final User suggUser : suggestions) {
+            System.out.println("User-ID: " + suggUser.getUserId());
+            System.out.println("Followers: " + suggUser.getFollowers().size()
+                    + " | Following: " + suggUser.getFollowing().size()
+                    + "\nEnter 1 to Follow or 0 to Skip: ");
+
+            int choice = SCANNER.nextInt();
+            if (choice == 1) {
+                followSuggestionController.followUser(loggedUser, suggUser);
+                System.out.println("You are now following " + suggUser.getUserId());
+            }
+        }
     }
 
     private static void editProfile() {
-
+        ProfileEditView profileEditView = new ProfileEditView();
+        profileEditView.showEditMenu(loggedUser);
     }
 }
