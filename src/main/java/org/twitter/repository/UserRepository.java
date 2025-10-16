@@ -6,6 +6,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Repository for storing user and their information.
+ *
+ * @version             1.0 15-Oct-2025
+ * @author              Mohamed Abdul Azif
+ */
 public final class UserRepository {
 
     private static final Map<String, User> USERS_LIST = new HashMap<>();
@@ -14,8 +20,8 @@ public final class UserRepository {
      * Adds a new user to the repository after validating uniqueness
      * of userId and email.
      *
-     * @param user   the user object to register
-     * @return true if registration is successful; false otherwise
+     * @param user      The user object to register
+     * @return          True if registration is successful; false otherwise
      */
     public static boolean addRegisteredUser(final User user) {
         // Check if userId is already in use
@@ -40,8 +46,8 @@ public final class UserRepository {
     /**
      * Static method to get a User who has the specific UserID.
      *
-     * @param userId To retrieve the User with this UserID
-     * @return Returns User Object if UserID is found else null
+     * @param userId    To retrieve the User with this UserID
+     * @return          Returns User Object if UserID is found else null
      */
     public static User getSpecificUser(final String userId) {
         return USERS_LIST.get(userId);

@@ -12,8 +12,8 @@ import java.util.HashSet;
  * Contains tweet content, author information, and counts for
  * likes and retweets.
  *
- * @version                     1.0 25 Sept 2025
- * @author                      Mohamed Azif
+ * @version                     1.0 15 Oct 2025
+ * @author                      Mohamed Abdul Azif
  */
 public class Tweet {
 

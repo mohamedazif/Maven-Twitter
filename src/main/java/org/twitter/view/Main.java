@@ -70,7 +70,12 @@ public final class Main {
         return choice;
     }
 
-    private static void handleChoice(int choice) {
+    /**
+     * Handles the menu choice depending on whether the user is logged in.
+     *
+     * @param choice the menu choice entered by the user
+     */
+    private static void handleChoice(final int choice) {
         if (loggedUser == null) {
             switch (choice) {
                 case 1 -> registerUser();
@@ -95,6 +100,9 @@ public final class Main {
         }
     }
 
+    /**
+     * View for user login.
+     */
     private static void loginUser() {
         System.out.println("Enter your User-Id:");
         final String userId = SCANNER.next();
@@ -109,6 +117,9 @@ public final class Main {
         }
     }
 
+    /**
+     * View for register user.
+     */
     private static void registerUser() {
         System.out.println("Enter the following details:" + "\nEnter Name:");
         String userName = SCANNER.nextLine();
@@ -146,6 +157,9 @@ public final class Main {
         }
     }
 
+    /**
+     * View for Timeline display.
+     */
     private static void showTimeline() {
         TimelineController timelineController = new TimelineController();
         Collection<Tweet> timelineTweets = timelineController.getTimelineTweets(loggedUser);
@@ -188,6 +202,9 @@ public final class Main {
         }
     }
 
+    /**
+     * View for Profile display.
+     */
     private static void showProfile() {
         ProfileController profileController = new ProfileController();
         System.out.println(
@@ -206,7 +223,7 @@ public final class Main {
             return;
         }
 
-        for (Object tweet : tweets) {
+        for (final Object tweet : tweets) {
             if (tweet instanceof UserProfile.CombinedTweets ct) {
                 if (ct.isRetweet()) {
                     System.out.println("\nYou retweeted:");
@@ -220,6 +237,9 @@ public final class Main {
         }
     }
 
+    /**
+     * View for posting a tweet.
+     */
     private static void postTweet() {
         System.out.println("\nWrite your tweet thoughts:");
 
@@ -241,6 +261,9 @@ public final class Main {
         }
     }
 
+    /**
+     * View for suggesting followers.
+     */
     private static void suggestFollowers() {
         FollowSuggestionController followSuggestionController = new FollowSuggestionController();
 
@@ -266,6 +289,9 @@ public final class Main {
         }
     }
 
+    /**
+     * View for editing a profile.
+     */
     private static void editProfile() {
         ProfileEditView profileEditView = new ProfileEditView();
         profileEditView.showEditMenu(loggedUser);

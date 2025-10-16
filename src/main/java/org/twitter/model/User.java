@@ -8,8 +8,8 @@ import java.util.HashSet;
  * Represents a user in the Twitter-like application.
  * Holds personal details and lists of followers and following.
  *
- * @version                 1.0 25 Sept 2025
- * @author                  Mohamed Azif
+ * @version                 1.0 15 Oct 2025
+ * @author                  Mohamed Abdul Azif
  */
 public final class User {
 

@@ -7,6 +7,12 @@ import org.twitter.service.interfaces.TimelineService;
 
 import java.util.Collection;
 
+/**
+ * To coordinate the control between view and TimelineService.
+ *
+ * @version             1.0 15-Oct-2025
+ * @author              Mohamed Abdul Azif
+ */
 public final class TimelineController {
 
     private final TimelineService timelineService;
@@ -15,15 +21,35 @@ public final class TimelineController {
         this.timelineService = ServiceFactory.getInstance().getTimeLineService();
     }
 
-    public Collection<Tweet> getTimelineTweets(User user) {
+    /**
+     * To get Timeline tweets for the User.
+     *
+     * @param user  Logged-In user
+     * @return      Collection of Timeline tweets
+     */
+    public Collection<Tweet> getTimelineTweets(final User user) {
         return timelineService.getTimelineTweets(user);
     }
 
-    public boolean likeTweet(User user, Tweet tweet) {
+    /**
+     * To like a tweet.
+     *
+     * @param user      Logged-in user
+     * @param tweet     Tweet to be liked
+     * @return          Whether liked or not
+     */
+    public boolean likeTweet(final User user, final Tweet tweet) {
         return timelineService.likeTweet(user, tweet);
     }
 
-    public boolean retweet(User user, Tweet tweet) {
+    /**
+     * To retweet a tweet.
+     *
+     * @param user      Logged-in user
+     * @param tweet     Tweet to be retweeted
+     * @return          Whether retweeted or not
+     */
+    public boolean retweet(final User user, final Tweet tweet) {
         return timelineService.retweet(user, tweet);
     }
 }

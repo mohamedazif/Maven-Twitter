@@ -11,8 +11,20 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Shows the Profile of the user with following & followers count and tweets.
+ *
+ * @version                 1.0 15 Oct 2025
+ * @author                  Mohamed Abdul Azif
+ */
 public final class UserProfile implements ProfileService {
 
+    /**
+     * To get tweets and retweets of the User.
+     *
+     * @param user  Logged-in User
+     * @return      List containing tweets and retweets of the user
+     */
     @Override
     public List<Object> getUserProfileTweets(final User user) {
         List<CombinedTweets> ogNrtTweets = new ArrayList<>();

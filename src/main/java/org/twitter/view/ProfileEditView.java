@@ -5,11 +5,23 @@ import org.twitter.model.User;
 
 import java.util.Scanner;
 
+/**
+ * View class for providing a edit a profile screen.
+ *
+ * @version             1.0 15-Oct-2025
+ * @author              Mohamed Abdul Azif
+ */
 public class ProfileEditView {
     private static final Scanner SCANNER = new Scanner(System.in);
+
     private final ProfileEditController controller = new ProfileEditController();
 
-    public void showEditMenu(User user) {
+    /**
+     * Menu for edit the profile of the user.
+     *
+     * @param user Logged-in user
+     */
+    public void showEditMenu(final User user) {
         System.out.println("""
                 Edit Profile:
                 1. Change Username
@@ -35,28 +47,48 @@ public class ProfileEditView {
         }
     }
 
-    private void changeUsername(User user) {
+    /**
+     * To change the username.
+     *
+     * @param user Logged-in User
+     */
+    private void changeUsername(final User user) {
         System.out.print("Enter new username: ");
         String username = SCANNER.nextLine();
         controller.changeUsername(user, username);
         System.out.println("Username changed successfully!");
     }
 
-    private void changePassword(User user) {
+    /**
+     * To change the password.
+     *
+     * @param user Logged-in User
+     */
+    private void changePassword(final User user) {
         System.out.print("Enter new password: ");
         String password = SCANNER.nextLine();
         controller.changePassword(user, password);
         System.out.println("Password changed successfully!");
     }
 
-    private void changeAge(User user) {
+    /**
+     * To change the age.
+     *
+     * @param user Logged-in User
+     */
+    private void changeAge(final User user) {
         System.out.print("Enter new age: ");
         int age = SCANNER.nextInt();
         controller.changeAge(user, age);
         System.out.println("Age changed successfully!");
     }
 
-    private void changeBio(User user) {
+    /**
+     * To change the bio.
+     *
+     * @param user Logged-in User
+     */
+    private void changeBio(final User user) {
         System.out.print("Enter new bio: ");
         String bio = SCANNER.nextLine();
         if (bio.isBlank()) {
